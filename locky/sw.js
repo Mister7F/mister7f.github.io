@@ -1,4 +1,4 @@
-const cacheName = 'locky-check-url-field'
+const cacheName = 'locky-1792309221639'
 
 const preCache = async () => {
     const urlsToCache = []
@@ -20,6 +20,7 @@ const preCache = async () => {
     urlsToCache.push(indexPath + '/img/accounts/files.txt')
     urlsToCache.push(indexPath + '/img/accounts/default.svg')
     urlsToCache.push(indexPath + '/img/noimage.svg')
+    urlsToCache.push(indexPath + '/wordlists/eff_large_wordlist.txt')
 
     // "addAll" fail if only 1 of the request fail
     // we want to store as much as possible in
@@ -35,6 +36,21 @@ const preCache = async () => {
 
 self.addEventListener('install', (event) => {
     event.waitUntil(preCache())
+})
+
+// Delete every cache from previous versions so they don't pile up forever.
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches
+            .keys()
+            .then((names) =>
+                Promise.all(
+                    names
+                        .filter((name) => name !== cacheName)
+                        .map((name) => caches.delete(name))
+                )
+            )
+    )
 })
 
 self.addEventListener('fetch', async (event) => {
@@ -54,11 +70,6 @@ self.addEventListener('fetch', async (event) => {
         strategy = 'network-only'
     } else if (host === 'content.dropboxapi.com') {
         strategy = 'network-only'
-    } else if (
-        host === 'fonts.gstatic.com' ||
-        host === 'fonts.googleapis.com'
-    ) {
-        strategy = 'cache-first'
     } else if (currentHost === host) {
         const cachableExtension = [
             'css',
@@ -75,6 +86,11 @@ self.addEventListener('fetch', async (event) => {
         ]
         if (urlPath === indexPath + '/img/accounts/files.txt') {
             strategy = 'network-first'
+        } else if (
+            urlPath ===
+            indexPath + '/wordlists/eff_large_wordlist.txt'
+        ) {
+            strategy = 'cache-first'
         } else if (cachableExtension.indexOf(fileExtension) >= 0) {
             strategy = 'cache-first'
         } else if (
