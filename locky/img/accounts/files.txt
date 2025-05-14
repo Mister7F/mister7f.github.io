@@ -1,3 +1,4 @@
+IBRK_interactive_brokers.svg
 adobe.png
 aliexpress.png
 amazon.svg
@@ -7,6 +8,7 @@ avast.png
 axa-bank.png
 belfius.png
 bing.svg
+bitcoin.svg
 bnp-paribas-fortis.png
 bpost.png
 brave.svg
@@ -16,12 +18,15 @@ ctftime_ctf time.png
 dailymotion.svg
 debian.png
 deezer.png
+default.svg
 discord.svg
 dkv.svg
+download.svg
 dropbox.svg
 drupal.svg
 ebay.svg
 epic_games.png
+eth_ether_ethereum.svg
 evernote.svg
 facebook.svg
 faceit.png
@@ -39,7 +44,6 @@ hostinger.png
 icloud.svg
 ing.jpg
 instagram.svg
-IBRK_interactive_brokers.svg
 kaspersky.png
 ldlc.png
 leboncoin_le bon coin.png
@@ -62,6 +66,8 @@ outlook.svg
 ovh.png
 paypal.svg
 pinterest.svg
+plex.svg
+proton.svg
 proximus.png
 python.svg
 quora.svg
@@ -88,7 +94,6 @@ trello.svg
 tripadvisor.svg
 tumblr.svg
 twitch.svg
-twitter.svg
 ubisoft.png
 ubuntu.svg
 udemy.png
@@ -102,6 +107,7 @@ whatsapp.svg
 wifi.png
 wikipedia.png
 wordpress.svg
+x_twitter.svg
 yahoo.svg
 youtube.svg
 zamnesia.png
